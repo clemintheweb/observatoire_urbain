@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>observatoire urbain</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- lien police google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    
+    <!-- lien CSS Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    
+        <!-- MarkerCluster CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    
+        <!-- Leaflet Control Geocoder CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+
+    <!-- lien CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Icônes google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    
+</head>
+    
+<body>
+    
+<button id="open-sidebar-button" onclick="openSidebar()" class="material-symbols-rounded">
+    menu
+</button>
+
+    <!-- menu de navigation -->
+    <nav id="navbar">
+        <ul>
+            <li><button id="close-sidebar-button" onclick="closeSidebar()" class="material-symbols-rounded">
+        close
+    </button>
+            </li>
+            <li class="home-li"><a href="index.html">home</a></li>
+            <li class="logo-li">
+            <a id="logo-link" href="https://paqlab.uqam.ca/index.php">
+                <img id="nav-logo" src="broccoli.png" alt="logo-broccoli">
+            </a>
+            </li>
+            <li><a href="tutoriel.html">tutorial</a></li>
+            <li><a href="project.html">Observatoire Urbain</a></li>
+            <li><a href="data.html">data</a></li>
+            <li><a href="more.html">more</a></li>
+        </ul>
+    </nav>
+    
+    <div id="map"></div>
+    
+    <div id="tree-info-box" class="info-box hidden">
+    <button id="close-info-box">×</button>
+    <div id="tree-info-content"></div>
+    </div>
+    
+    <div class="legend-container">
+    <div id="genus-legend" class="map-legend legend-box"></div>
+    <div id="dbh-legend" class="map-legend legend-box"></div>
+    </div>
+
+    <!-- lien Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+    <!-- lien Leaflet  markercluster JS -->
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    
+    <!-- Leaflet Control Geocoder -->
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    
+    <!-- lien JS -->
+    <script src="script.js" defer></script>
+</body>
+</html>

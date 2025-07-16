@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>project – Observatoire Urbain</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+</head>
+<body>
+
+<button id="open-sidebar-button" onclick="openSidebar()" class="material-symbols-rounded">
+    menu
+</button>
+
+<nav id="navbar">
+    <ul>
+        <li><button id="close-sidebar-button" onclick="closeSidebar()" class="material-symbols-rounded">
+            close
+        </button></li>
+        <li class="home-li"><a href="index.html">home</a></li>
+        <li class="logo-li">
+        <a id="logo-link" href="https://paqlab.uqam.ca/index.php">
+            <img id="nav-logo" src="broccoli.png" alt="logo-broccoli">
+        </a>
+        </li>
+        <li><a href="tutorial.html">tutorial</a></li>
+        <li><a href="project.html" class="active-link">Observatoire Urbain</a></li>
+        <li><a href="data.html">data</a></li>
+        <li><a href="more.html">more</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h1> Observatoire Urbain</h1>
+    
+    <h2>un réseau d'échantillonnage de la biodiversité urbaine et ses liens avec les gens</h2>
+    
+    <p>La Chaire, ses partenaires et ses collaborateurs de l'Université de Sherbrooke et de l'Université du Québec à Chicoutimi, ont mit en place un vaste observatoire de la forêt urbaine à l'aide de placettes permanentes situées dans quatre grandes villes du Québec (Montréal, Sherbrooke, Québec et Chicoutimi) le long de gradients d'urbanisation et de développement humain.</p>
+
+    <p>D'abord installées pour le suivie des pollens, on y mesure maintenant de nombreuses variables et organismes, allant des microorganismes (microbiotes) liés aux feuilles des arbres, à leur racines et aux sols, en passant par les insectes et l'air ambiant. Nous nous intéressons aussi aux relations trophiques, comme par exemple entre les prédateurs comme les chats et les oiseaux et la défoliation des arbres par l'herbivorie des insectes. La santé humaine étant au coeur de nos préoccupation, nous tentons de lier ces variables à la santé, comme par exemple les allergies. Enfin évidemment, il s'agit aussi de placettes de suivie de la forêt urbaine, et nous avons identifiés et mesurés tous les arbres, publics et privés, autours des placettes.</p>
+
+    <p>Le dispositif a été mis en place en 2021 avec l'installation de 25 trappes à pollen répartis sur tout le territoire Montréalais. En 2022, un vaste inventaire forestier a été réalisé dans un rayon de 100 mètres autour des trappes. Objectif 2023 ? Réaliser l'inventaire dans un rayon de 200 mètres !</p>
+    
+    <section class="project-gallery">
+        <a href="https://chaireforeturbaine.uqam.ca/projets/pollens-urbains.php?lang=fr" class="gallery-card-link" target="_blank">
+        <div class="gallery-card">
+            <img src="pollen-TK.jpg" alt="pollens urbains">
+            <div class="gallery-info">
+                <h3> pollens urbains</h3>
+                <p> échantillonnage, identification, modélisation – <em>Sarah Tardif, Raquel Kanieski</em></p>
+            </div>
+        </div>
+        </a>
+        <a href="https://chaireforeturbaine.uqam.ca/allergies/index.php?lang=fr" class="gallery-card-link" target="_blank">
+        <div class="gallery-card">
+            <img src="pollen-T.jpg" alt="pollens urbains">
+            <div class="gallery-info">
+                <h3> pollens urbains</h3>
+                <p> étude des effets sur les allergies saisonnières – <em>Sarah Tardif</em></p>
+            </div>
+        </div>
+        </a>
+        <a href="https://chaireforeturbaine.uqam.ca/projets/microbiomes-in-urban-environment.php?lang=fr" class="gallery-card-link" target="_blank">
+        <div class="gallery-card">
+            <img src="microbiome-F.jpg" alt="écologie des microbiomes urbains">
+            <div class="gallery-info">
+                <h3> écologie des microbiomes urbains</h3>
+                <p> relier les villes aux microorganismes qui les habitent – <em>Maria Faticov</em></p>
+            </div>
+        </div>
+        </a>
+        <a href="https://chaireforeturbaine.uqam.ca/projets/biodiversite-des-insectes-urbains.php?lang=fr" class="gallery-card-link" target="_blank">
+        <div class="gallery-card">
+            <img src="insecte-F.jpg" alt="biodiversité des insectes urbains">
+            <div class="gallery-info">
+                <h3> biodiversité des insectes urbains</h3>
+                <p> échantillonnage, quantification, identification et mise en perspective – <em>Jérémy Fraysse</em></p>
+            </div>
+        </div>
+        </a>
+        <a href="https://chaireforeturbaine.uqam.ca/projets/communautes-vegetales-et-mesofaune.php?lang=fr" class="gallery-card-link" target="_blank">
+        <div class="gallery-card">
+            <img src="mesofaune-GK.jpg" alt="biodiversité des insectes urbains">
+            <div class="gallery-info">
+                <h3> mésofaune en ville</h3>
+                <p> vers une meilleure compréhension des liens entre les perturbations, les communautés végétales et la mésofaune du sol – <em>Essivi Gagnon Koudji</em></p>
+            </div>
+        </div>
+        </a>
+        <a href="https://chaireforeturbaine.uqam.ca/projets/assessing-urban-tree-diversity-and-structure-in-private-spaces.php?lang=fr" class="gallery-card-link" target="_blank">
+        <div class="gallery-card">
+            <img src="arbres_prives-B.jpg" alt="inventaire des arbres privés à Montréal">
+            <div class="gallery-info">
+                <h3> inventaire des arbres privés à Montréal</h3>
+                <p> évaluation de la diversité et de la structure des arbres urbains dans les espaces privés – <em>Emma Bacon</em></p>
+            </div>
+        </div>
+        </a>
+        <a href="https://chaireforeturbaine.uqam.ca/projets/inventaire-arbres-urbains-montreal.php?lang=fr" class="gallery-card-link" target="_blank">
+        <div class="gallery-card">
+            <img src="arbres-F.jpg" alt="inventaire des arbres à Montréal">
+            <div class="gallery-info">
+                <h3> inventaire des arbres à Montréal</h3>
+                <p>  – <em>Marine Fernandez</em></p>
+            </div>
+        </div>
+        </a>
+    </section>
+  </main>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+
+<script src="script.js" defer></script>
+</body>
+</html>

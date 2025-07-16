@@ -1,0 +1,511 @@
+:root {
+    --primary-color: #252525;
+    --hover-color: #525252;
+    --accent-color: #bdbdbd;
+    --text-color: #d9d9d9;
+    --tree-primary-color:#3CB371;
+    --tree-secondary-color:#00FA9A;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Montserrat", sans-serif;
+    color: var(--text-color);
+    height: 100vh;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-color: var(--primary-color);
+}
+
+/* barre de navigation */
+main {
+    padding: min(5em, 7%);
+}
+
+main p {
+    margin-top: .35em;
+}
+
+nav {
+    background-color: var(--primary-color);
+    border-bottom: 1px solid var(--hover-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav .home-li {
+    margin-right: auto;
+}
+
+nav li {
+    display: flex;
+}
+nav a {
+    display: flex;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 1em 2em;
+    transition: background-color 150ms ease;
+    font-weight: bold;
+}
+    
+nav a:hover {
+    background-color: var(--hover-color);
+}
+
+nav a.active-link {
+    background-color: var(--accent-color);
+    color: var(--primary-color); /* optional: for contrast */
+}
+
+nav a.accent-link {
+    background-color: var(--accent-color);
+}
+
+#open-sidebar-button{
+    font-family: "Material Symbols Rounded";
+    color: var(--text-color);
+    display: none;
+    background: none;
+    border: none;
+    padding: 1em;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+#close-sidebar-button{
+    font-family: "Material Symbols Rounded";
+    color: var(--text-color);
+    display: none;
+    background: none;
+    border: none;
+    padding: 1em;
+    cursor: pointer;
+}
+
+/* Logo animé dans la nav */
+.logo-li {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+#logo-link {
+    position: absolute;
+    top: -5px;
+    animation: walk 20s infinite alternate ease-in-out;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+#nav-logo {
+    height: 55px;
+    pointer-events: none; /* Permet que le clic fonctionne sur le lien, pas l’image */
+}
+
+#logo-link.flipped {
+    transform: scaleX(-1);
+}
+
+@keyframes walk {
+    0% { left: 0; }
+    100% { left: calc(100% - 80px); }
+}
+
+/* barre de navigation , gestion adaptabilité aux smartphones */
+@media screen and (max-width: 800px) {
+    
+    #open-sidebar-button, #close-sidebar-button{
+        display: block;
+    }
+    nav{
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: min(10em, 100%);
+        z-index: 10;
+        border-left: 1px solid var(--hover-color);
+        transition: right 300ms ease-out;
+    }
+    
+    nav.show{
+        right:0;
+        
+    }
+    nav ul{
+        width: 100%;
+        flex-direction: column;
+    }
+    nav a{
+        width: 100%;
+        padding-left: 2.5em;
+        justify-content: flex-start;
+        text-align: right;     
+    }
+    nav a.active-link{
+    background-color: var(--accent-color);
+    color: var(--primary-color); /* optional: for contrast */
+        
+    }
+    nav a.home-li{
+        margin-right: unset;
+    }
+    
+    .logo-li {
+    order: 999; /* pour l'envoyer à la fin de la liste */
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    width: auto;
+    height: auto;
+}
+
+#logo-link {
+    position: relative;
+    animation: none; /* Désactiver l'animation en mobile */
+    top: 0;
+    left: 0;
+    transform: none;
+}
+}
+
+
+/* carte du site */
+#map {
+    height: 70vh;
+     z-index: 0;
+}
+
+.leaflet-control-geocoder {
+  z-index: 1000 !important;
+  background-color: var(--accent-color);
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.leaflet-control-geocoder .geocoder-control-input {
+  width: 200px;
+  color: var(--primary-color);
+}
+
+.leaflet-control-zoom a {
+    background-color: var(--accent-color); /* background */
+    color: var(--primary-color);           /* + / - icon */
+    font-weight: bold;
+    border: none;
+}
+
+.leaflet-control-zoom a:hover {
+    background-color: var(--hover-color); /* on hover */
+    color: var(--text-color);
+}
+
+.leaflet-control-attribution {
+    background-color: var(--accent-color); /* or any custom color */
+    color: var(--primary-color);           /* text color */
+    font-size: 0.8em;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.no-default-icon {
+  background: none;
+  border: none;
+}
+
+.tree-icon {
+  width: 20px;
+  height: 20px;
+  background-color: #bdbdbd;
+    border: 1px solid rgba(0, 0, 0, 0.4); /* 👈 Ajout du contour */
+    box-sizing: border-box;              /* Pour que la bordure ne dépasse pas */
+  margin: 0 auto;
+}
+
+.tree-icon.selected {
+  outline: 2px solid #FFD700; /* jaune doré brillant */
+  box-shadow: 0 0 6px #FFD700;
+  z-index: 999;
+}
+
+
+/* 10 formes uniques */
+.shape-1 {
+  clip-path: circle(50%); /* cercle */
+}
+
+.shape-2 {
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%); /* triangle */
+}
+
+.shape-3 {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); /* hexagone */
+}
+
+.shape-4 {
+  clip-path: ellipse(50% 30% at 50% 50%); /* ellipse aplatie */
+}
+
+.shape-5 {
+  clip-path: polygon(0 50%, 50% 0%, 100% 50%, 50% 100%); /* losange */
+}
+
+.shape-6 {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* carré (par défaut) */
+}
+
+.shape-7 {
+  clip-path: polygon(0 0, 100% 0, 50% 100%); /* triangle inversé */
+}
+
+.shape-8 {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* étoile */
+}
+
+.shape-9 {
+  clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%); /* octogone */
+}
+
+.shape-10 {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* diamant étendu */
+}
+
+/* Forme par défaut pour les autres genres */
+.shape-11 {
+  clip-path: inset(0); /* carré plein, simple */
+}
+
+/* Légende */
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  margin: 2em auto;
+  padding: 1em;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: 0.9em;
+  border-radius: 8px;
+  max-width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  flex-direction: row;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.4em 0.6em;
+  border: 1px solid var(--hover-color);
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  white-space: nowrap;
+}
+
+.legend-shape {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5em;
+}
+
+.legend-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 2em;
+  gap: 2em;
+}
+
+.legend-box {
+  flex: 1 1 200px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 0.8em 1em;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  min-width: 260px;
+}
+
+.legend-box strong {
+  display: block;
+  margin-bottom: 0.2em;
+  text-align: center;
+}
+
+/* Boîte DBH */
+#dbh-legend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.4em; /* espace réduit entre titre et contenu */
+}
+
+/* Titre */
+#dbh-legend strong {
+  font-size: 1em;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* Légende DBH en ligne */
+.dbh-horizontal-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+    gap: 0.6em;
+}
+
+.dbh-gradient-bar {
+  height: 20px;
+  width: 200px;
+  background: linear-gradient(to right, rgb(144, 238, 144), rgb(0, 100, 0));
+  border: 1px solid var(--hover-color);
+  border-radius: 4px;
+gap: 0.6em;             /* espace réduit entre les éléments */
+  margin-top: 0.3em; 
+}
+
+.dbh-label {
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+/* Responsive (empilement mobile) */
+@media screen and (max-width: 800px) {
+  .legend-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.shape-1, .shape-3, .shape-5, .shape-7, .shape-9 {
+  background-color: var(--tree-primary-color);
+}
+
+.shape-2, .shape-4, .shape-6, .shape-8, .shape-10 {
+  background-color: var(--tree-secondary-color);
+}
+
+.shape-11 {
+  background-color: #98FB98; /* neutre pour les autres genres */
+}
+
+/* info box de l'arbre */
+
+.info-box {
+  position: absolute;
+  top: 5em;
+  right: 1em;
+  background-color: rgba(37, 37, 37, 0.85);
+  color: var(--text-color);
+  padding: 1em 1.2em;
+  border-radius: 8px;
+  max-width: 280px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+    transition: opacity 200ms ease, transform 200ms ease;
+  opacity: 1;
+}
+
+.info-box.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#close-info-box {
+  position: absolute;
+  top: 0.2em;
+  right: 0.4em;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* section projet  */
+
+main p {
+  text-align: justify;
+  line-height: 1.7;
+  margin-bottom: 1.2em;
+  font-size: 1.05em;
+  max-width: 100%
+}
+
+main h1,
+main h2 {
+  text-align: center;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5em;
+  padding: 2em;
+  background-color: var(--primary-color);
+}
+
+.gallery-card {
+  background: var(--hover-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.gallery-info {
+  padding: 1em;
+}
+
+.gallery-info h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.gallery-info p {
+  font-size: 0.95em;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+}
+
+.gallery-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.gallery-card-link:visited,
+.gallery-card-link:active,
+.gallery-card-link:hover {
+  text-decoration: none;
+  color: inherit;
+}

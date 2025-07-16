@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>data – Observatoire Urbain</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+</head>
+<body>
+
+<button id="open-sidebar-button" onclick="openSidebar()" class="material-symbols-rounded">
+    menu
+</button>
+
+<nav id="navbar">
+    <ul>
+        <li><button id="close-sidebar-button" onclick="closeSidebar()" class="material-symbols-rounded">
+            close
+        </button></li>
+        <li class="home-li"><a href="index.html">home</a></li>
+        <li class="logo-li">
+        <a id="logo-link" href="https://paqlab.uqam.ca/index.php">
+            <img id="nav-logo" src="broccoli.png" alt="logo-broccoli">
+        </a>
+        </li>
+        <li><a href="tutorial.html">tutorial</a></li>
+        <li><a href="project.html">Observatoire Urbain</a></li>
+        <li><a href="data.html" class="active-link">data</a></li>
+        <li><a href="more.html">more</a></li>
+    </ul>
+</nav>
+
+<main>
+    <!-- Contenu à ajouter ici -->
+</main>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js" defer></script>
+</body>
+</html>
