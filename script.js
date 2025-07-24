@@ -84,14 +84,21 @@ function createPlainLayer(data) {
 
       marker.on('click', () => {
   //  Retirer la sélection précédente
-  if (selectedTreeMarker) {
-    const prevEl = selectedTreeMarker.getElement();
-    if (prevEl) prevEl.classList.remove('selected');
+if (selectedTreeMarker) {
+  const prevEl = selectedTreeMarker.getElement();
+  if (prevEl) {
+    const prevIcon = prevEl.querySelector('.tree-icon');
+    if (prevIcon) prevIcon.classList.remove('selected');
   }
-
-  // ✅ Appliquer la sélection actuelle
-  const thisEl = marker.getElement();
-  if (thisEl) thisEl.classList.add('selected');
+}
+  //  Appliquer la sélection actuelle
+          
+          
+const thisEl = marker.getElement();
+if (thisEl) {
+  const iconDiv = thisEl.querySelector('.tree-icon');
+  if (iconDiv) iconDiv.classList.add('selected');
+}
 
   selectedTreeMarker = marker;
         const infoBox = document.getElementById('tree-info-box');
@@ -113,10 +120,9 @@ function createPlainLayer(data) {
   });
 }
     
-let selectedTreeMarker = null;
+   let selectedTreeMarker = null;
 
 
-    
 document.getElementById('close-info-box').addEventListener('click', () => {
   document.getElementById('tree-info-box').classList.add('hidden');
 });
@@ -292,4 +298,44 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     console.warn("L'élément #logo-link est introuvable. Assurez-vous qu’il est bien dans le HTML.");
   }
+});
+
+// dataviz de la page data
+// Animation des chiffres ronds
+// Animation apparition + compteur
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.classList.add('show');
+
+        // Démarrer le compteur uniquement si pas encore compté
+        const span = el.querySelector('.circle-value');
+        const target = +el.dataset.value;
+        if (!el.dataset.counted) {
+          let count = 0;
+          const duration = 1000;
+          const step = Math.ceil(target / (duration / 20));
+          const update = () => {
+            count += step;
+            if (count < target) {
+              span.innerText = count.toLocaleString('fr-FR');
+              requestAnimationFrame(update);
+            } else {
+              span.innerText = target.toLocaleString('fr-FR');
+            }
+          };
+          update();
+          el.dataset.counted = "true";
+        }
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  document.querySelectorAll('.circle-chart').forEach(el => {
+    observer.observe(el);
+  });
 });
