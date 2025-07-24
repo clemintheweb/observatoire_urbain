@@ -21,21 +21,94 @@
         <li><button id="close-sidebar-button" onclick="closeSidebar()" class="material-symbols-rounded">
             close
         </button></li>
-        <li class="home-li"><a href="index.html">home</a></li>
+        <li class="home-li"><a href="index.html">carte de la forêt urbaine de Montréal</a></li>
         <li class="logo-li">
         <a id="logo-link" href="https://paqlab.uqam.ca/index.php">
             <img id="nav-logo" src="broccoli.png" alt="logo-broccoli">
         </a>
         </li>
-        <li><a href="tutorial.html">tutorial</a></li>
-        <li><a href="project.html">Observatoire Urbain</a></li>
-        <li><a href="data.html" class="active-link">data</a></li>
+        <li><a href="project.html">projet de l'Observatoire urbain</a></li>
+        <li><a href="data.html" class="active-link">données de la carte</a></li>
         <li><a href="more.html">more</a></li>
     </ul>
 </nav>
 
 <main>
-    <!-- Contenu à ajouter ici -->
+    <h1>la forêt urbaine de Montréal</h1>
+    <br>
+    <h2>un inventaire de la diversité morphologique et taxonomique et de la structure spatiale des arbres à  Montréal</h2>
+    
+<section class="data-highlights-2rows">
+
+  <!-- Cercle du haut -->
+  <div class="data-row single">
+    <div class="circle-chart" data-value="34370">
+      <span class="circle-value">0</span>
+      <p>arbres inventoriés</p>
+    </div>
+  </div>
+
+  <!-- Deux cercles en bas -->
+  <div class="data-row double">
+    <div class="circle-chart" data-value="25">
+      <span class="circle-value">0</span>
+      <p>placettes urbaines</p>
+    </div>
+    <div class="circle-chart" data-value="474">
+      <span class="circle-value">0</span>
+      <p>espèces d’arbres</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- Ratio arbres publics/privés -->
+<section class="bar-section">
+  <h3>répartition arbres privés / publics</h3>
+  <div class="bar-chart">
+    <div class="bar-label">privés</div>
+    <div class="bar-fill private" style="width: 69.7%">69.7%</div>
+  </div>
+  <div class="bar-chart">
+    <div class="bar-label">publics</div>
+    <div class="bar-fill public" style="width: 30.3%">30.3%</div>
+  </div>
+</section>
+    
+    <p>Depuis 2007, la population urbaine mondiale dépasse la population rurale, et le nombre de citadins ne cesse d’augmenter. Alors que les développements urbains croissent et se reproduisent à grande vitesse, qu’en est-il des arbres ? Et des insectes ? Et des oiseaux ? Et nous, qu’en est-il de notre santé, de notre bien-être ? C’est en se posant toutes ces questions que des personnes étudiantes au doctorant, à la maîtrise, et des chercheuses postdoctorales de l’UQAM, encadrés par le professeur Alain Paquette, et de l’Université de Sherbrooke, encadrés par la professeure Isabelle Laforest-Lapointe ont décidés de s’associer pour créer le dispositif « Observatoire Urbain » sur l’Île de Montréal. Les professeures Tanya Handa (UQAM) et Carly Ziter (Concordia), ainsi que leurs étudiantes se sont ajoutées depuis. </p>
+
+    <p>En utilisant le dispositif, qui a été mis en place en 2021, ce projet tente de comprendre comment les arbres privés, et leur services associés, change selon des gradients socioéconomiques et urbain. Pour ce faire, un vaste inventaire forestier des arbres privés et publiques est en cours de réalisation à un rayon de 200 mètres autour des 25 sites (centré sur des trappes de pollen). Pourquoi est-il si important d’étudier les arbres privés en plus des arbres publiques? La recherche actuelle sur la forêt urbaine est généralement limitée aux arbres publics en raison de l’accès et la disponibilité des données. Plus de 50% des arbres urbains sont ainsi exclus des études, avec des résultats possiblement biaisés. Ainsi, en incluant les arbres privés, ce projet tente d'avoir un portrait réel de la biodiversité des abres et les services qu'ils produissent.</p>
+
+<section class="research-team">
+  <h3>équipe de recherche</h3>
+  <ul>
+    <li><strong>chercheur.e.s :</strong> Emma Bacon</li>
+    <li><strong>collaborateur.rice.s :</strong> Marine Fernandez, Clément Heintz, Hugo Ouellet, Laura Schillé</li>
+    <li><strong>directeur.ice.s :</strong> Carly Ziter</li>
+    <li><strong>co-directeur.ice.s :</strong> Alain Paquette</li>
+    <li><strong>date :</strong> 2022 - 2025</li>
+  </ul>
+</section>
+    
+    
+    
+    
+    
+    
+    <footer id="site-footer">
+  <p class="footer-main">
+    projet réalisé par
+    <a href="https://www.linkedin.com/in/cl%C3%A9ment-heintz-813a78331/" target="_blank" class="footer-link">
+      <strong>Clément HEINTZ</strong>
+    </a>,
+    avec le soutien et les conseils avisés de 
+    <a href="https://live.unistra.fr/live/annuaire/herrault-pierre-alexis" target="_blank" class="footer-link">
+      <strong>Pierre-Alexis HERRAULT</strong>
+    </a>
+  </p>
+  <p class="footer-sub">projet soutenu par le PaqLab et son équipe, UQAM</p>
+  </main>
+</footer>
 </main>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
