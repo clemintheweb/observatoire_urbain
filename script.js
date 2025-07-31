@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     position: 'bottomleft'
   }).addTo(map);
 
-  const zoomThreshold = 18;
+  const zoomThreshold = 16.5;
   let clusterLayer = L.markerClusterGroup();
   let plainLayer = null;
   let rawData = null;
