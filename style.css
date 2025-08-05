@@ -18,6 +18,20 @@ html {
     height: 100vh;
 }
 
+/* lien page académique */
+.main-link {
+  color: inherit;     
+  text-decoration: none;       
+  font-family: inherit;        
+  font-weight: inherit;        
+  transition: color 0.2s ease;
+}
+
+.main-link:hover {
+  color: var(--hover-color); /* doré au survol */
+}
+
+
 body {
     min-height: 100vh;
     min-height: 100dvh;
@@ -566,6 +580,19 @@ text-align: center;
   color: var(--hover-color); /* doré au survol */
 }
 
+/* lien page académique */
+.main-link {
+  color: inherit;     
+  text-decoration: none;       
+  font-family: inherit;        
+  font-weight: inherit;        
+  transition: color 0.2s ease;
+}
+
+.main-link:hover {
+  color: var(--hover-color); /* doré au survol */
+}
+
 /* datavizu de la page data */
 
 /* --- Structure du bloc cercles --- */
@@ -680,3 +707,4 @@ text-align: center;
     align-items: center;
   }
 }
+
